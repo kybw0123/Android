@@ -3,6 +3,8 @@ package com.example.part2_3;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,8 @@ public class Lab3_3Activity extends AppCompatActivity implements View.OnClickLis
     Button trueBtn;
     TextView targetTextview;
     Button fasleBtn;
+    CheckBox checkBox;
+
 
 
     @Override
@@ -25,6 +29,20 @@ public class Lab3_3Activity extends AppCompatActivity implements View.OnClickLis
         //Button 이벤트 등록
         trueBtn.setOnClickListener(this);
         fasleBtn.setOnClickListener(this);
+
+        //CheckBox 객체 등록
+        checkBox=findViewById(R.id.checkbox);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+                if(isChecked){
+                    checkBox.setText("is Checked");
+                }else{
+                    checkBox.setText("is unChecked");
+                }
+
+            }
+        });
     }
 
     // 버튼 이벤트 콜백함수
